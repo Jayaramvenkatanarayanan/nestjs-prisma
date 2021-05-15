@@ -7,3 +7,5 @@ https://docs.nestjs.com/graphql/quick-start
 
 
 https://github.com/prisma/prisma-examples/tree/latest/typescript/rest-nestjs
+
+https://github.com/prisma/prisma-examples/tree/latest/typescript/graphql-sdl-first

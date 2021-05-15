@@ -407,7 +407,7 @@
         "affectsGlobalScope": false
       },
       "../prisma/seed.ts": {
-        "version": "e99af11378d71c7105d9bdf8a28749300511d64c0d862e84283c2daf461edc9b",
+        "version": "43b0090e101fb6dd6927f30ef37f36e1aac5806b115c3493fa7ad2f656017919",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -1441,9 +1441,9 @@
         "signature": "4e11254fb433ad6662142993fc53ad59d7892acb68b7e430a8a50b1fb279ddcb",
         "affectsGlobalScope": false
       },
-      "../src/products/products.service.ts": {
-        "version": "c20c9f37a11569f26cd35d3ae2e73dfafbcbd7714fb3ce21dcb5e9ddc1e18a8e",
-        "signature": "7f457d8b083e2327facb06b0a345b6f0ef943f2790a47a7e48c47d7c7e9b5961",
+      "../src/users/users.service.ts": {
+        "version": "8e9676ee228e135c504f701ee3dad3756ced1c4b65824aebea930476fc0425e9",
+        "signature": "f35668397b1cf3ac01852512470565747af77401399d5deb876ff780635778b6",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/range-parser/index.d.ts": {
@@ -1486,18 +1486,18 @@
         "signature": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
         "affectsGlobalScope": false
       },
-      "../src/products/products.controller.ts": {
-        "version": "b845850702fffc53a59dc458062deae3076c353daf8664261d834acdc6184114",
-        "signature": "3735f924dbd628f45b0e83f58bb4ce48baf11234e55d5899afc0f128b78fd678",
+      "../src/users/users.controller.ts": {
+        "version": "87e22373812ef9c92f3760bf565257c9365e2e02eb8d740cf13b02a004e91b85",
+        "signature": "6d25aea974b33bed40b79b50d37cfbe0e9a690aa26aa49efa0f45bbb2cde5c0f",
         "affectsGlobalScope": false
       },
-      "../src/products/products.module.ts": {
-        "version": "2e72ba02be5222fdf40a0649074a0913fb30c585b6bfd52cc995a86a31ae5a4f",
-        "signature": "8857a2a959eb0ee870d0adb812e0d41a0e12796ec0c1d85f8416e82bcf51ca03",
+      "../src/users/users.module.ts": {
+        "version": "37be7a3e3250a1111f6d800d265954f746daab6d9be8c031efeb3cf02737f2fe",
+        "signature": "1dcb491a316921e55c59c524c346c70d713d9ed9a989df224e465f0bd1d05393",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "51a99936125421278871e5c04b1fe5213018de51b9d32a8189e963333ce9afd5",
+        "version": "9db40f6c0599331bfd153d964e4f118224773120d0656a6983f4253387bd8b8c",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -1686,7 +1686,7 @@
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
-      "../src/products/products.model.ts": {
+      "../src/users/users.model.ts": {
         "version": "7b89b49c6321af61a843fb3be7522fb114ffe1fd4af022faeb8acabc617625d5",
         "signature": "70b995afd108074279d9574fb87c7d6f16ad3b3efc446c1705365207a3d5fce1",
         "affectsGlobalScope": false
@@ -3080,7 +3080,7 @@
         "../src/app.controller.ts",
         "../src/app.service.ts",
         "../src/prisma.service.ts",
-        "../src/products/products.module.ts"
+        "../src/users/users.module.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -3093,19 +3093,19 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@prisma/client/index.d.ts"
       ],
-      "../src/products/products.controller.ts": [
+      "../src/users/users.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@prisma/client/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
-        "../src/products/products.service.ts"
+        "../src/users/users.service.ts"
       ],
-      "../src/products/products.module.ts": [
+      "../src/users/users.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/prisma.service.ts",
-        "../src/products/products.controller.ts",
-        "../src/products/products.service.ts"
+        "../src/users/users.controller.ts",
+        "../src/users/users.service.ts"
       ],
-      "../src/products/products.service.ts": [
+      "../src/users/users.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@prisma/client/index.d.ts",
         "../src/prisma.service.ts"
@@ -4310,11 +4310,12 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@prisma/client/index.d.ts"
       ],
-      "../src/products/products.controller.ts": [
+      "../src/users/users.controller.ts": [
+        "../node_modules/@prisma/client/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
-        "../src/products/products.service.ts"
+        "../src/users/users.service.ts"
       ],
-      "../src/products/products.service.ts": [
+      "../src/users/users.service.ts": [
         "../node_modules/@prisma/client/index.d.ts",
         "../src/prisma.service.ts"
       ]
@@ -4688,10 +4689,10 @@
       "../src/app.service.ts",
       "../src/main.ts",
       "../src/prisma.service.ts",
-      "../src/products/products.controller.ts",
-      "../src/products/products.model.ts",
-      "../src/products/products.module.ts",
-      "../src/products/products.service.ts"
+      "../src/users/users.controller.ts",
+      "../src/users/users.model.ts",
+      "../src/users/users.module.ts",
+      "../src/users/users.service.ts"
     ]
   },
   "version": "4.2.4"

@@ -1,9 +1,9 @@
-import { ProductsServices } from "./products.service";
+import { UsersServices } from "./users.service";
 import { Response } from "express";
 import { Prisma } from "@prisma/client";
 export declare class ProductsController {
-    private readonly productsService;
-    constructor(productsService: ProductsServices);
+    private readonly usersServices;
+    constructor(usersServices: UsersServices);
     getUserList(response: Response): Promise<any>;
     getUserByID(id: string, response: Response): Promise<any>;
     createNewUser(response: Response, userData: {
@@ -11,4 +11,6 @@ export declare class ProductsController {
         email: string;
         posts: Prisma.PostCreateInput[];
     }): Promise<any>;
+    togglePublishPost(id: string, response: Response): Promise<any>;
+    deletePost(id: string, response: Response): Promise<any>;
 }

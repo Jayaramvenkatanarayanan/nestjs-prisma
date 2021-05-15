@@ -14,18 +14,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsController = void 0;
 const common_1 = require("@nestjs/common");
-const products_service_1 = require("./products.service");
+const users_service_1 = require("./users.service");
 let ProductsController = class ProductsController {
-    constructor(productsService) {
-        this.productsService = productsService;
+    constructor(usersServices) {
+        this.usersServices = usersServices;
     }
     async getUserList(response) {
-        const results = await this.productsService.getAllUser();
+        const results = await this.usersServices.getAllUser();
         response.status(common_1.HttpStatus.OK).send({ data: results, status: true });
         response.end();
     }
     async getUserByID(id, response) {
-        const results = await this.productsService.getUserByID(id);
+        const results = await this.usersServices.getUserByID(id);
         if (results !== null) {
             response.status(common_1.HttpStatus.OK).send({ data: results, status: true });
             response.end();
@@ -49,7 +49,7 @@ let ProductsController = class ProductsController {
                 },
             },
         };
-        const addedNewUser = await this.productsService.createUser(input);
+        const addedNewUser = await this.usersServices.createUser(input);
         if (addedNewUser) {
             response
                 .status(common_1.HttpStatus.OK)
@@ -60,6 +60,36 @@ let ProductsController = class ProductsController {
             response
                 .status(common_1.HttpStatus.INTERNAL_SERVER_ERROR)
                 .send({ data: "usercreate Failed.", status: false });
+            response.end();
+        }
+    }
+    async togglePublishPost(id, response) {
+        const userPublised = await this.usersServices.userPublish(id);
+        if (userPublised) {
+            response
+                .status(common_1.HttpStatus.OK)
+                .send({ data: "userPublished.", status: true });
+            response.end();
+        }
+        else {
+            response
+                .status(common_1.HttpStatus.INTERNAL_SERVER_ERROR)
+                .send({ data: "userPublish Failed.", status: false });
+            response.end();
+        }
+    }
+    async deletePost(id, response) {
+        const userPostDeleted = await this.usersServices.deletePost(id);
+        if (userPostDeleted) {
+            response
+                .status(common_1.HttpStatus.OK)
+                .send({ data: "userpostDeleted.", status: true });
+            response.end();
+        }
+        else {
+            response
+                .status(common_1.HttpStatus.INTERNAL_SERVER_ERROR)
+                .send({ data: "userpostDeleted Failed.", status: false });
             response.end();
         }
     }
@@ -87,9 +117,25 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "createNewUser", null);
+__decorate([
+    common_1.Patch("userPublish/:id"),
+    __param(0, common_1.Param("id")),
+    __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], ProductsController.prototype, "togglePublishPost", null);
+__decorate([
+    common_1.Delete("deletePost/:id"),
+    __param(0, common_1.Param("id")),
+    __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], ProductsController.prototype, "deletePost", null);
 ProductsController = __decorate([
     common_1.Controller("userController"),
-    __metadata("design:paramtypes", [products_service_1.ProductsServices])
+    __metadata("design:paramtypes", [users_service_1.UsersServices])
 ], ProductsController);
 exports.ProductsController = ProductsController;
-//# sourceMappingURL=products.controller.js.map
+//# sourceMappingURL=users.controller.js.map

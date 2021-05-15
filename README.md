@@ -4,8 +4,6 @@
 
 ![Prisma](https://i.imgur.com/h6UIYTu.png)
 
-<img alt="GraphQL Logo" src="https://www.apollographql.com/static/bda4fb1e50b3b3c7c75c83ed9ee828aa/6addd/apis%402x.png"  />
-
 # REST API Example
 
 This example shows how to implement a **REST API** using [NestJS](https://docs.nestjs.com/) and [Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client). It uses a SQLite database file with some initial dummy data which you can find at [`./prisma/dev.db`](./prisma/dev.db). The example was bootstrapped using the NestJS CLI command `nest new rest-nestjs`.
@@ -17,7 +15,7 @@ This example shows how to implement a **REST API** using [NestJS](https://docs.n
 Download this example:
 
 ```
-curl https://codeload.github.com/prisma/prisma-examples/tar.gz/latest | tar -xz --strip=2 prisma-examples-latest/typescript/rest-nestjs
+curl https://github.com/Jayaramvenkatanarayanan/nestjs-prisma.git
 ```
 
 Install npm dependencies:
@@ -58,7 +56,6 @@ Now, seed the database with the sample data in [`prisma/seed.ts`](./prisma/seed.
 npx prisma db seed --preview-feature
 ```
 
-
 ### 3. Start the REST API server
 
 ```
@@ -73,37 +70,34 @@ You can access the REST API of the server using the following endpoints:
 
 ### `GET`
 
-- `/post/:id`: Fetch a single post by its `id`
-- `/feed?searchString={searchString}&take={take}&skip={skip}&orderBy={orderBy}`: Fetch all _published_ posts
-  - Query Parameters
-    - `searchString` (optional): This filters posts by `title` or `content`
-    - `take` (optional): This specifies how many objects should be returned in the list
-    - `skip` (optional): This specifies how many of the returned objects in the list should be skipped
-    - `orderBy` (optional): The sort order for posts in either ascending or descending order. The value can either `asc` or `desc`
-- `/user/:id/drafts`: Fetch user's drafts by their `id`
-- `/users`: Fetch all users
+- `userController/users`: Fetch all users.
+- `userController/user/:id`: Fetch user by ID.
+
 ### `POST`
 
-- `/post`: Create a new post
-  - Body:
-    - `title: String` (required): The title of the post
-    - `content: String` (optional): The content of the post
-    - `authorEmail: String` (required): The email of the user that creates the post
-- `/signup`: Create a new user
+- `/signup`: Create a new user with post
   - Body:
     - `email: String` (required): The email address of the user
     - `name: String` (optional): The name of the user
     - `postData: PostCreateInput[]` (optional): The posts of the user
+- `Example JSON` : {
+  "name": "user1",
+  "email": "22das@user1.in",
+  "posts": [
+  {
+  "title": "Prisma on YouTube",
+  "content": "https://pris.ly/youtube"
+  }
+  ]
+  }
 
-### `PUT`
+### `PATCH`
 
-- `/publish/:id`: Toggle the publish value of a post by its `id`
-- `/post/:id/views`: Increases the `viewCount` of a `Post` by one `id`
+- `userController/userPublish/:id`: Toggle the publish value of a post by its `id`
 
 ### `DELETE`
 
-- `/post/:id`: Delete a post by its `id`
-
+- `userController/deletePost/:id`: Delete a post by its `id`
 
 ## Evolving the app
 
@@ -187,7 +181,12 @@ async createUserProfile(
 At the top of `app.controller.ts`, update your imports to include `Profile` from `@prisma/client` as follows:
 
 ```ts
-import { User as UserModel, Post as PostModel, Prisma, Profile } from '@prisma/client'
+import {
+  User as UserModel,
+  Post as PostModel,
+  Prisma,
+  Profile,
+} from "@prisma/client";
 ```
 
 #### 2.2 Testing out your new endpoint
@@ -200,7 +199,6 @@ Restart your application server and test out your new endpoint.
   - Body:
     - `bio: String` : The bio of the user
 
-
 <details><summary>Expand to view more sample Prisma Client queries on <code>Profile</code></summary>
 
 Here are some more sample Prisma Client queries on the new <code>Profile</code> model:
@@ -210,12 +208,12 @@ Here are some more sample Prisma Client queries on the new <code>Profile</code> 
 ```ts
 const profile = await prisma.profile.create({
   data: {
-    bio: 'Hello World',
+    bio: "Hello World",
     user: {
-      connect: { email: 'alice@prisma.io' },
+      connect: { email: "alice@prisma.io" },
     },
   },
-})
+});
 ```
 
 ##### Create a new user with a new profile
@@ -223,30 +221,30 @@ const profile = await prisma.profile.create({
 ```ts
 const user = await prisma.user.create({
   data: {
-    email: 'john@prisma.io',
-    name: 'John',
+    email: "john@prisma.io",
+    name: "John",
     profile: {
       create: {
-        bio: 'Hello World',
+        bio: "Hello World",
       },
     },
   },
-})
+});
 ```
 
 ##### Update the profile of an existing user
 
 ```ts
 const userWithUpdatedProfile = await prisma.user.update({
-  where: { email: 'alice@prisma.io' },
+  where: { email: "alice@prisma.io" },
   data: {
     profile: {
       update: {
-        bio: 'Hello Friends',
+        bio: "Hello Friends",
       },
     },
   },
-})
+});
 ```
 
 </details>
@@ -320,4 +318,3 @@ generator client {
 ```
 
 </details>
-

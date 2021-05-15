@@ -1,0 +1,33 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#f7f7f7f1",
+    "titleBar.inactiveForeground": "#f7f7f7f1",
+    "titleBar.activeBackground": "#8500f9f1",
+    "titleBar.inactiveBackground": "#8500f9f1"
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "prettier.disableLanguages": ["javascript", "javascriptreact"],
+  "workbench.colorTheme": "Cobalt2",
+  // The Cursive font is operator Mono, it's $200 and you need to buy it to get the cursive
+  "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 25,
+  "editor.letterSpacing": 0.5,
+  "files.trimTrailingWhitespace": true,
+  "editor.fontWeight": "400",
+  "prettier.eslintIntegration": true,
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 5,
+  "editor.cursorBlinking": "solid",
+  "editor.renderWhitespace": "all"
+}

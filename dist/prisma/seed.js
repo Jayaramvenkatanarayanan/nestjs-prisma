@@ -4,44 +4,44 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const userData = [
     {
-        name: 'Alice',
-        email: 'alice@prisma.io',
+        name: "Alice",
+        email: "alice@prisma.io",
         posts: {
             create: [
                 {
-                    title: 'Join the Prisma Slack',
-                    content: 'https://slack.prisma.io',
+                    title: "Join the Prisma Slack",
+                    content: "https://slack.prisma.io",
                     published: true,
                 },
             ],
         },
     },
     {
-        name: 'Nilu',
-        email: 'nilu@prisma.io',
+        name: "Nilu",
+        email: "nilu@prisma.io",
         posts: {
             create: [
                 {
-                    title: 'Follow Prisma on Twitter',
-                    content: 'https://www.twitter.com/prisma',
+                    title: "Follow Prisma on Twitter",
+                    content: "https://www.twitter.com/prisma",
                     published: true,
                 },
             ],
         },
     },
     {
-        name: 'Mahmoud',
-        email: 'mahmoud@prisma.io',
+        name: "Mahmoud",
+        email: "mahmoud@prisma.io",
         posts: {
             create: [
                 {
-                    title: 'Ask a question about Prisma on GitHub',
-                    content: 'https://www.github.com/prisma/prisma/discussions',
+                    title: "Ask a question about Prisma on GitHub",
+                    content: "https://www.github.com/prisma/prisma/discussions",
                     published: true,
                 },
                 {
-                    title: 'Prisma on YouTube',
-                    content: 'https://pris.ly/youtube',
+                    title: "Prisma on YouTube",
+                    content: "https://pris.ly/youtube",
                 },
             ],
         },
