@@ -1,24 +1,18 @@
-import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, Res, HttpStatus, Get } from '@nestjs/common';
 import { ProductsServices } from './products.service';
 import { Response } from 'express';
+import { User } from '@prisma/client';
 
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsServices) {}
-  //createProducts
-  @Post('addNewProduct')
-  async createProducts(
-    @Body() postData: { title: string; description: string; price: number },
-    @Res() res: Response,
-  ): Promise<any> {
-    const { title, description, price } = postData;
-    const result = await this.productsService.insertProduct(
-      title,
-      description,
-      price,
-    );
-    console.dir(result);
-    res.status(HttpStatus.OK).send(result[0]);
-    res.end();
+
+  @Get('users')
+  async getUserList(@Res() response:Response):Promise<any>{
+    const results = await this.productsService.getAllUser()
+    response.status(HttpStatus.OK).send({data:results,status:true});
+    response.end();
   }
+
+
 }

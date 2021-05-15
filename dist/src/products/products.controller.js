@@ -19,22 +19,19 @@ let ProductsController = class ProductsController {
     constructor(productsService) {
         this.productsService = productsService;
     }
-    async createProducts(postData, res) {
-        const { title, description, price } = postData;
-        const result = await this.productsService.insertProduct(title, description, price);
-        console.dir(result);
-        res.status(common_1.HttpStatus.OK).send(result[0]);
-        res.end();
+    async getUserList(response) {
+        const results = await this.productsService.getAllUser();
+        response.status(common_1.HttpStatus.OK).send({ data: results, status: true });
+        response.end();
     }
 };
 __decorate([
-    common_1.Post('addNewProduct'),
-    __param(0, common_1.Body()),
-    __param(1, common_1.Res()),
+    common_1.Get('users'),
+    __param(0, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "createProducts", null);
+], ProductsController.prototype, "getUserList", null);
 ProductsController = __decorate([
     common_1.Controller('products'),
     __metadata("design:paramtypes", [products_service_1.ProductsServices])

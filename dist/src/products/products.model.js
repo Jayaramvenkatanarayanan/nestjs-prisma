@@ -10,4 +10,4 @@ class Product {
     }
 }
 exports.Product = Product;
-//# sourceMappingURL=products.modle.js.map
+//# sourceMappingURL=products.model.js.map

@@ -6,22 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductsServices = void 0;
+exports.ProductsModule = void 0;
 const common_1 = require("@nestjs/common");
-const products_modle_1 = require("./products.modle");
-let ProductsServices = class ProductsServices {
-    constructor() {
-        this.products = [];
-    }
-    async insertProduct(title, description, price) {
-        const id = '2222';
-        const newProduct = new products_modle_1.Product(id, title, description, price);
-        this.products.push(newProduct);
-        return this.products;
-    }
+const products_controller_1 = require("./products.controller");
+const products_service_1 = require("./products.service");
+const prisma_service_1 = require("../prisma.service");
+let ProductsModule = class ProductsModule {
 };
-ProductsServices = __decorate([
-    common_1.Injectable()
-], ProductsServices);
-exports.ProductsServices = ProductsServices;
-//# sourceMappingURL=products.service.js.map
+ProductsModule = __decorate([
+    common_1.Module({
+        imports: [],
+        controllers: [products_controller_1.ProductsController],
+        providers: [products_service_1.ProductsServices, prisma_service_1.PrismaService],
+    })
+], ProductsModule);
+exports.ProductsModule = ProductsModule;
+//# sourceMappingURL=products.module.js.map

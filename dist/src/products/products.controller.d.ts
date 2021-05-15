@@ -3,9 +3,5 @@ import { Response } from 'express';
 export declare class ProductsController {
     private readonly productsService;
     constructor(productsService: ProductsServices);
-    createProducts(postData: {
-        title: string;
-        description: string;
-        price: number;
-    }, res: Response): Promise<any>;
+    getUserList(response: Response): Promise<any>;
 }
